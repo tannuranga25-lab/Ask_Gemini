@@ -1,5 +1,4 @@
 *{
-
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -7,59 +6,212 @@
 
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #f5f5f5;
-    display: flex;
-    justify-content: center;
     min-height: 100vh;
     padding-top: 100px;
+    display: flex;
+    justify-content: center;
+
+    /* Welcoming colorful background */
+    background: linear-gradient(
+        135deg,
+        #e0f2fe,
+        #f3e8ff,
+        #fef3c7
+    );
 }
 
+
+/* Main Card */
 .container{
     width: 1000px;
     max-width: 90%;
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    margin: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 35px;
+    border-radius: 20px;
 
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.12);
+
+    margin: 30px;
+    backdrop-filter: blur(10px);
+
+    animation: fadeUp 0.7s ease;
 }
 
+
+/* Heading */
 h1{
     margin-bottom: 10px;
+    font-size: 36px;
+    color: #1e293b;
+    letter-spacing: -1px;
 }
 
+
+/* Optional paragraph styling */
+p{
+    color: #64748b;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+
+/* Input + Button */
 .input-container{
     display: flex;
-    gap: 10px;
-    margin-top: 20px;
-
+    gap: 12px;
+    margin-top: 25px;
 }
 
 
+/* Input */
 input{
     flex: 1;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 16px;
-}
-
-button{
-    padding: 12px 20px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    background: black;
-    color: white;
-
-}
-
-
-#answer{
-    margin-top: 25px;
     padding: 15px;
-    background: #f5f5f5;
-    border-radius: 8px;
-    min-height: 50px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 16px;
+    background: #ffffff;
+
+    transition: all 0.3s ease;
+}
+
+
+/* Input Focus */
+input:focus{
+    outline: none;
+    border-color: #8b5cf6;
+
+    box-shadow:
+        0 0 0 4px rgba(139, 92, 246, 0.15);
+}
+
+
+/* Placeholder */
+input::placeholder{
+    color: #94a3b8;
+}
+
+
+/* Button */
+button{
+    padding: 15px 25px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    background: linear-gradient(
+        135deg,
+        #7c3aed,
+        #a855f7
+    );
+
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+
+    transition: all 0.3s ease;
+
+    box-shadow:
+        0 6px 15px rgba(124, 58, 237, 0.3);
+}
+
+
+/* Button Hover */
+button:hover{
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 22px rgba(124, 58, 237, 0.4);
+}
+
+
+/* Button Click */
+button:active{
+    transform: translateY(0);
+}
+
+
+/* Answer Box */
+#answer{
+    margin-top: 30px;
+    padding: 22px;
+    min-height: 80px;
+
+    background: linear-gradient(
+        135deg,
+        #f8fafc,
+        #eef2ff
+    );
+
+    border-radius: 14px;
+
+    border-left: 5px solid #8b5cf6;
+
+    color: #334155;
+    font-size: 17px;
+    line-height: 1.7;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.05);
+
+    transition: all 0.3s ease;
+}
+
+
+/* Answer Box Hover */
+#answer:hover{
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.08);
+}
+
+
+/* Container Animation */
+@keyframes fadeUp{
+
+    from{
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Mobile Responsive */
+@media(max-width: 600px){
+
+    body{
+        padding-top: 40px;
+    }
+
+    .container{
+        max-width: 92%;
+        padding: 22px;
+        margin: 15px;
+        border-radius: 16px;
+    }
+
+    h1{
+        font-size: 28px;
+    }
+
+    .input-container{
+        flex-direction: column;
+    }
+
+    input,
+    button{
+        width: 100%;
+    }
+
+    #answer{
+        padding: 18px;
+        font-size: 16px;
+    }
 }

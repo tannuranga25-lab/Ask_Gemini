@@ -25,7 +25,17 @@ const askGemini = async(req,res)=>{
 
         const response = await ai.models.generateContent({
             model: "gemini-3.5-flash",
-            contents: `remove all # , * ${question}`
+            contents:  `
+Answer the following question in simple and easy English.
+
+Give a clear, useful, and focused answer in a maximum of 500 words.
+Explain the topic properly so that a beginner can understand it easily.
+
+Do not use markdown symbols like # or *.
+Keep the answer relevant to the question.
+
+Question: ${question}
+`
         })
 
         // get generated text
